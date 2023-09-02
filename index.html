@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Simulateur d'investissements</title>
+
+    <script src="js/InvestmentSimulator.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body class="container">
+    <div class="jumbotron">
+        <h2>Simulateur d'investissements</h2>
+        <form id="investmentForm">
+            <div>
+                <label for="duration">Durée (années) :</label>
+                <input type="number" id="duration" class="form-control" name="duration" required value="10">
+            </div>
+            <div>
+                <label for="inflationRate">Taux d'inflation (%) :</label>
+                <input type="number" id="inflationRate" class="form-control" name="inflationRate" required value="6">
+            </div>
+            <div>
+                <label for="initialSalary">Salaire initial :</label>
+                <input type="number" id="initialSalary" class="form-control" name="initialSalary" required value="3500">
+            </div>
+            <div>
+                <label for="savingsRate">Taux d'épargne (%) :</label>
+                <input type="number" id="savingsRate" class="form-control" name="savingsRate" required value="40">
+            </div>
+
+            <div id="investmentInputs">
+                <div class="investment-input">
+                    <hr class="my-4">
+                    <div>
+                        <label for="investmentName">Nom de l'investissement :</label>
+                        <input type="text" class="form-control name" required value="PEA">
+                    </div>
+                    <div>
+                        <label for="investmentRate">Taux de rendement annuel (%) :</label>
+                        <input type="number" class="form-control rate" required value="8">
+                    </div>
+                    <div>
+                        <label for="investmentInitialAmount">Montant initial :</label>
+                        <input type="number" class="form-control initial-amount" required value="10000">
+                    </div>
+                    <div>
+                        <label for="investmentAllocationPercentage">Pourcentage d'allocation (%) :</label>
+                        <input type="number" class="form-control allocation-percentage" required value="100">
+                    </div>
+                    <div>
+                        <label for="investmentFees">Frais de gestion annuels (%) :</label>
+                        <input type="number" class="form-control fees" required value="0.6">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <button class="btn btn-primary" type="button" onclick="addInvestmentInput()">Ajouter un
+                investissement</button>
+
+            <br>
+            <br>
+
+        </form>
+
+        <button class="btn btn-primary" type="button" onclick="simulateInvestments()">Simuler les
+            investissements</button>
+
+        <div id="results">
+        </div>
+
+
+    </div>
+
+    <div id="graph-container"></div>
+
+    <br>
+    <br>
+
+    <button class="btn btn-primary" type="button" onclick="plotInvestments()">Tracer les investissements</button>
+
+</body>
+
+</html>

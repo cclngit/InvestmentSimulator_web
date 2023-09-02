@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simulateur d'investissements</title>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="{{url_for('static', filename='js/InvestmentSimulator.js')}}"></script>
+  <script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
+</head>
+<body class="container">
+  <h1 class="mt-5">Simulateur d'investissements</h1>
+  
+  <h2 class="mt-4">Paramètres du simulateur</h2>
+  <form>
+    <div class="form-group">
+      <label for="duration">Durée (en années) :</label>
+      <input type="number" class="form-control" id="duration" value="10">
+    </div>
+    
+    <div class="form-group">
+      <label for="inflationRate">Taux d'inflation (% par an) :</label>
+      <input type="number" class="form-control" id="inflationRate" value="6">
+    </div>
+    
+    <div class="form-group">
+      <label for="initialSalary">Salaire initial :</label>
+      <input type="number" class="form-control" id="initialSalary" value="3500">
+    </div>
+    
+    <div class="form-group">
+      <label for="savingsRate">Taux d'épargne (% du salaire) :</label>
+      <input type="number" class="form-control" id="savingsRate" value="40">
+    </div>
+  </form>
+  
+  <h2 class="mt-4">Investissements</h2>
+  <form id="investmentInputs" class="mt-2 mb-2 investment-input">
+    <div class="form-group">
+      <label for="investmentName">Nom de l'investissement :</label>
+      <input type="text" class="form-control name">
+    </div>
+
+    <div class="form-group">
+      <label for="investmentRate">Taux de rendement annuel (%) :</label>
+      <input type="number" class="form-control rate">
+    </div>
+
+    <div class="form-group">
+      <label for="investmentInitialAmount">Montant initial :</label>
+      <input type="number" class="form-control initial-amount">
+    </div>
+    
+    <div class="form-group">
+      <label for="investmentAllocationPercentage">Pourcentage d'allocation (%) :</label>
+      <input type="number" class="form-control allocation-percentage">
+    </div>
+    
+    <div class="form-group">
+      <label for="investmentFees">Frais de gestion annuels (%) :</label>
+      <input type="number" class="form-control fees">
+    </div>
+  </form>
+  
+  <button class="btn btn-primary" onclick="addInvestmentInput()">Ajouter un investissement</button>
+  
+  <button class="btn btn-primary mt-2 mb-2" onclick="simulateInvestments()">Simuler les investissements</button>
+  
+  <h2 class="mt-4">Résultats</h2>
+  
+  <div id="results"></div>
+  
+  <h2 class="mt-4">Graphique</h2>
+
+  <button class="btn btn-primary" onclick="plotInvestments()">Voir le graphique</button>
+
+  <canvas id="plot" width="400" height="400"></canvas>
+  
+  <!--div id="plot"-></div-->
+
+</body>
+</html>
