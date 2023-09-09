@@ -5,71 +5,90 @@
     <meta charset="utf-8">
     <title>Simulateur d'investissements</title>
 
-    <script src="js/InvestmentSimulator.js"></script>
+    <script src="js/script.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="css/w3-colors-ios.css" rel="stylesheet" type="text/css">
+
 </head>
 
-<body class="container">
-    <div class="jumbotron">
-        <h2>Simulateur d'investissements</h2>
-        <form id="investmentForm">
-            <div>
-                <label for="duration">Durée (années) :</label>
-                <input type="number" id="duration" class="form-control" name="duration" required value="10">
+<body class="w3-container">
+
+    <div class="w3-container w3-ios-deep-blue" style="text-align:center">
+        <h1>Simulateur d'investissements</h1>
+    </div>
+
+    <div class="w3-container w3-card-4">
+        <form id="investmentForm" class="w3-container">
+            <div class="w3-row w3-section">
+                <label for="duration" class="w3-col" style="width:20%">Durée (années) :</label>
+                <input type="number" id="duration" class="form-control w3-input w3-col" name="duration" required
+                    value="10">
             </div>
-            <div>
-                <label for="inflationRate">Taux d'inflation (%) :</label>
-                <input type="number" id="inflationRate" class="form-control" name="inflationRate" required value="6">
+            <div class="w3-row w3-section">
+                <label for="inflationRate" class="w3-col" style="width:20%">Taux d'inflation (%) :</label>
+                <input type="number" id="inflationRate" class="form-control w3-input w3-col" name="inflationRate"
+                    required value="6">
             </div>
-            <div>
-                <label for="initialSalary">Salaire initial :</label>
-                <input type="number" id="initialSalary" class="form-control" name="initialSalary" required value="3500">
+            <div class="w3-row w3-section">
+                <label for="initialSalary" class="w3-col" style="width:20%">Salaire initial :</label>
+                <input type="number" id="initialSalary" class="form-control w3-input w3-col" name="initialSalary"
+                    required value="3500">
             </div>
-            <div>
-                <label for="savingsRate">Taux d'épargne (%) :</label>
-                <input type="number" id="savingsRate" class="form-control" name="savingsRate" required value="40">
+            <div class="w3-row w3-section">
+                <label for="savingsRate" class="w3-col" style="width:20%">Taux d'&#233;pargne (%) :</label>
+                <input type="number" id="savingsRate" class="form-control w3-input w3-col" name="savingsRate" required
+                    value="40">
             </div>
 
             <div id="investmentInputs">
                 <div class="investment-input">
                     <hr class="my-4">
-                    <div>
-                        <label for="investmentName">Nom de l'investissement :</label>
-                        <input type="text" class="form-control name" required value="PEA">
+                    <div class="w3-row w3-section">
+                        <label for="investmentName" class="w3-col" style="width:40%">Nom de l'investissement :</label>
+                        <input type="text" class="form-control w3-input name" required value="PEA">
                     </div>
-                    <div>
-                        <label for="investmentRate">Taux de rendement annuel (%) :</label>
-                        <input type="number" class="form-control rate" required value="8">
+                    <div class="w3-row w3-section">
+                        <label for="investmentRate" class="w3-col" style="width:40%">Taux de rendement annuel (%)
+                            :</label>
+                        <input type="number" class="form-control w3-input rate" required value="8">
                     </div>
-                    <div>
-                        <label for="investmentInitialAmount">Montant initial :</label>
-                        <input type="number" class="form-control initial-amount" required value="10000">
+                    <div class="w3-row w3-section">
+                        <label for="investmentInitialAmount" class="w3-col" style="width:40%">Montant initial :</label>
+                        <input type="number" class="form-control w3-input initial-amount" required value="10000">
                     </div>
-                    <div>
-                        <label for="investmentAllocationPercentage">Pourcentage d'allocation (%) :</label>
-                        <input type="number" class="form-control allocation-percentage" required value="100">
+                    <div class="w3-row w3-section">
+                        <label for="investmentAllocationPercentage" class="w3-col" style="width:40%">Pourcentage
+                            d'alloc. (%) :</label>
+                        <input type="number" class="form-control w3-input allocation-percentage" required value="100">
                     </div>
-                    <div>
-                        <label for="investmentFees">Frais de gestion annuels (%) :</label>
-                        <input type="number" class="form-control fees" required value="0.6">
+                    <div class="w3-row w3-section">
+                        <label for="investmentFees" class="w3-col" style="width:40%">Frais de gestion annuels (%)
+                            :</label>
+                        <input type="number" class="form-control w3-input fees" required value="0.6">
                     </div>
                 </div>
             </div>
             <br>
             <br>
+            <div class="w3-display-container w3-center">
+                <button class="w3-btn w3-blue w3-round-xlarge w3-ios-deep-blue" type="button"
+                    onclick="addInvestmentInput()" alt="Ajouter un investissement">+</button>
 
-            <button class="btn btn-primary" type="button" onclick="addInvestmentInput()">Ajouter un
-                investissement</button>
+                <br>
+                <br>
 
+                <button class="w3-btn w3-blue w3-round-xlarge w3-ios-green" type="button"
+                    onclick="simulateInvestments()">Simuler</button>
+            </div>
             <br>
             <br>
-
         </form>
 
-        <button class="btn btn-primary" type="button" onclick="simulateInvestments()">Simuler les
-            investissements</button>
+
 
         <div id="results">
         </div>
@@ -77,13 +96,35 @@
 
     </div>
 
-    <div id="graph-container"></div>
+    <br>
+    <br>
+
+    <div class="w3-container w3-card-4 " id="graph-container"></div>
 
     <br>
     <br>
 
-    <button class="btn btn-primary" type="button" onclick="plotInvestments()">Tracer les investissements</button>
+    <!--Centrer le bouton-->
+    <div class="w3-display-container w3-center">
+        <button class="w3-btn w3-blue w3-round-xlarge w3-ios-grey" type="button"
+            onclick="plotInvestments()">Visualiser</button>
+    </div>
+
+    <br>
+    <br>
+
+
 
 </body>
+
+<!--pied de page-->
+<footer class="w3-container w3-ios-deep-blue w3-center w3-margin-top">
+    <p>© 2023 - Simulateur d'investissements</p>
+    <p>Site réalisé par Ciciliano Altmann</p>
+    <!--ajout un logo sur lequel clique-->
+    <p>OpenSource - <a href="https://github.com/cclngit" target="_blank">
+            <img src="icons/github-logo_icon-icons.com_73546.svg" alt="Github" width="30" height="30"> </a> </p>
+
+</footer>
 
 </html>
