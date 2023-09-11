@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
 
@@ -6,18 +6,16 @@ app = Flask(__name__)
 CORS(app)
 
 class InvestmentSimulator:
-    def __init__(self, duration, inflation_rate, initial_salary, savings_rate, currency="€"):
+    def __init__(self, duration, initial_salary, savings_rate, currency="€"):
         """ This class simulates the evolution of investments over time.
 
         Args:
             duration (int): The duration of the simulation in years.
-            inflation_rate (float): The inflation rate in percent.
             initial_salary (float): The initial salary in euros/usd.
             savings_rate (float): The percentage of the salary that is saved each month.
             currency (str): The currency of the simulation.
         """
         self.duration = duration
-        self.inflation_rate = inflation_rate / 100
         self.salary_changes = [(0, initial_salary)] 
         self.salary = initial_salary
         self.savings_rate = savings_rate / 100
@@ -74,8 +72,7 @@ class InvestmentSimulator:
             nominal_rate (float): The nominal rate of the investment in percent.
             fees (float): The fees of the investment in percent.
         """
-        real_rate = ((1 + nominal_rate) / (1 + self.inflation_rate)) - 1
-        return real_rate - fees 
+        return ((1 + nominal_rate)) - 1 - fees 
 
     def simulate_investment(self, investment, duration=None):
         """ Simulate the evolution of an investment over time.
@@ -93,7 +90,7 @@ class InvestmentSimulator:
         for _ in range(duration * 12):
             salary = self.get_salary_for_year(_ // 12)
             monthly_amount = salary * self.savings_rate * investment["allocation_percentage"]
-            final_amount += monthly_amount * (1 + investment["rate"] - self.inflation_rate) ** (_ // 12)
+            final_amount += monthly_amount * (1 + investment["rate"]) ** (_ // 12)
 
         return final_amount
 
@@ -133,11 +130,10 @@ def simulate_investments():
     data = request.json
     print(data)
     duration = int(data['duration'])
-    inflation_rate = float(data['inflation_rate'])
     initial_salary = int (data['initial_salary'])
     savings_rate = int(data['savings_rate'])
     
-    simulator = InvestmentSimulator(duration=duration, inflation_rate=inflation_rate, initial_salary=initial_salary, savings_rate=savings_rate)
+    simulator = InvestmentSimulator(duration=duration, initial_salary=initial_salary, savings_rate=savings_rate)
     
     investments = data['investments']
     for investment in investments:
@@ -163,11 +159,10 @@ def plot_investments():
     data = request.json
     
     duration = int(data['duration'])
-    inflation_rate = float(data['inflation_rate'])
     initial_salary = int(data['initial_salary'])
     savings_rate = int(data['savings_rate'])
     
-    simulator = InvestmentSimulator(duration=duration, inflation_rate=inflation_rate, initial_salary=initial_salary, savings_rate=savings_rate)
+    simulator = InvestmentSimulator(duration=duration, initial_salary=initial_salary, savings_rate=savings_rate)
     
     investments = data['investments']
     for investment in investments:
@@ -194,4 +189,3 @@ def plot_investments():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    

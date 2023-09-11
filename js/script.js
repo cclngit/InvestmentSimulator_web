@@ -2,14 +2,12 @@
 function simulateInvestments() {
   // Récupérer les données du formulaire
   var duration = document.getElementById('duration').value;
-  var inflationRate = document.getElementById('inflationRate').value;
   var initialSalary = document.getElementById('initialSalary').value;
   var savingsRate = document.getElementById('savingsRate').value;
 
   // Créer le corps de la requête
   var data = {
     duration: duration,
-    inflation_rate: inflationRate,
     initial_salary: initialSalary,
     savings_rate: savingsRate,
     investments: []
@@ -151,14 +149,12 @@ function addInvestmentInput() {
 function plotInvestments() {
   // Récupérer les données du formulaire
   var duration = document.getElementById('duration').value;
-  var inflationRate = document.getElementById('inflationRate').value;
   var initialSalary = document.getElementById('initialSalary').value;
   var savingsRate = document.getElementById('savingsRate').value;
 
   // Créer le corps de la requête
   var data = {
     duration: duration,
-    inflation_rate: inflationRate,
     initial_salary: initialSalary,
     savings_rate: savingsRate,
     investments: []
@@ -223,7 +219,7 @@ function plotInvestments() {
           });
         } else {
           totalData.forEach(function (point, index) {
-            point.y += data[index].y;
+            point.y += data[index].y.toFixed(2) * 1;
           });
         }
       });
