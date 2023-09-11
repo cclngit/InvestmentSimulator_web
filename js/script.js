@@ -88,7 +88,6 @@ function addInvestmentInput() {
 
   // Création de la barre horizontale au début
   var startHr = document.createElement('hr');
-  // Ajout de la classe "my-4" à la barre horizontale
   startHr.classList.add('my-4');
   investmentInputsContainer.appendChild(startHr);
 
