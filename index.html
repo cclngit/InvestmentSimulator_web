@@ -3,6 +3,13 @@
 
 <head>
     <meta charset="utf-8">
+
+    <!--pour le responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--logo de l'onglet-->
+    <link rel="icon" href="ico/ico.png" />
+
     <title>Simulateur d'investissements</title>
 
     <script src="js/script.js"></script>
@@ -31,17 +38,17 @@
     <div class="w3-container w3-card-4">
         <form id="investmentForm" class="w3-container">
             <div class="w3-row w3-section">
-                <label for="duration" class="w3-col" style="width:20%">Durée (années) :</label>
+                <label for="duration"  style="width:20%">Durée (années) :</label>
                 <input type="number" id="duration" class="form-control w3-input w3-col" name="duration" required
                     value="10">
             </div>
             <div class="w3-row w3-section">
-                <label for="initialSalary" class="w3-col" style="width:20%">Salaire initial :</label>
+                <label for="initialSalary"  style="width:20%">Salaire initial :</label>
                 <input type="number" id="initialSalary" class="form-control w3-input w3-col" name="initialSalary"
                     required value="3500">
             </div>
             <div class="w3-row w3-section">
-                <label for="savingsRate" class="w3-col" style="width:20%">Taux d'&#233;pargne (%) :</label>
+                <label for="savingsRate"  style="width:20%">Taux d'&#233;pargne (%) :</label>
                 <input type="number" id="savingsRate" class="form-control w3-input w3-col" name="savingsRate" required
                     value="40">
             </div>
@@ -50,16 +57,16 @@
                 <div class="investment-input">
                     <hr class="my-4">
                     <div class="w3-row w3-section">
-                        <label for="investmentName" class="w3-col" style="width:40%">Nom de l'investissement :</label>
+                        <label for="investmentName"  style="width:40%">Nom de l'investissement :</label>
                         <input type="text" class="form-control w3-input name" required value="PEA">
                     </div>
                     <div class="w3-row w3-section">
-                        <label for="investmentRate" class="w3-col" style="width:40%">Taux de rendement annuel (%)
+                        <label for="investmentRate"  style="width:40%">Taux de rendement annuel (%)
                             :</label>
                         <input type="number" class="form-control w3-input rate" required value="8">
                     </div>
                     <div class="w3-row w3-section">
-                        <label for="investmentInitialAmount" class="w3-col" style="width:40%">Montant initial :</label>
+                        <label for="investmentInitialAmount"  style="width:40%">Montant initial :</label>
                         <input type="number" class="form-control w3-input initial-amount" required value="10000">
                     </div>
                     <div class="w3-row w3-section">
@@ -68,7 +75,7 @@
                         <input type="number" class="form-control w3-input allocation-percentage" required value="100">
                     </div>
                     <div class="w3-row w3-section">
-                        <label for="investmentFees" class="w3-col" style="width:40%">Frais de gestion annuels (%)
+                        <label for="investmentFees" style="width:40%">Frais de gestion annuels (%)
                             :</label>
                         <input type="number" class="form-control w3-input fees" required value="0.6">
                     </div>
