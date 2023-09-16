@@ -250,3 +250,12 @@ function plotInvestments() {
     })
     .catch(error => console.log(error));
 }
+
+function toggleExplanation() {
+    var explanation = document.getElementById("explanation");
+    if (explanation.style.display === "none") {
+        explanation.style.display = "block";
+    } else {
+        explanation.style.display = "none";
+    }
+}

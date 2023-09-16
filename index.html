@@ -21,7 +21,7 @@
     <link href="css/w3-colors-ios.css" rel="stylesheet" type="text/css">
 
     <style>
-        hr.my-4{
+        hr.my-4 {
             border: 10px solid #4cd964;
             border-radius: 5px;
         }
@@ -38,17 +38,17 @@
     <div class="w3-container w3-card-4">
         <form id="investmentForm" class="w3-container">
             <div class="w3-row w3-section">
-                <label for="duration"  style="width:20%">Durée (années) :</label>
+                <label for="duration" style="width:20%">Durée (années) :</label>
                 <input type="number" id="duration" class="form-control w3-input w3-col" name="duration" required
                     value="10">
             </div>
             <div class="w3-row w3-section">
-                <label for="initialSalary"  style="width:20%">Salaire initial :</label>
+                <label for="initialSalary" style="width:20%">Salaire initial :</label>
                 <input type="number" id="initialSalary" class="form-control w3-input w3-col" name="initialSalary"
                     required value="3500">
             </div>
             <div class="w3-row w3-section">
-                <label for="savingsRate"  style="width:20%">Taux d'&#233;pargne (%) :</label>
+                <label for="savingsRate" style="width:20%">Taux d'&#233;pargne (%) :</label>
                 <input type="number" id="savingsRate" class="form-control w3-input w3-col" name="savingsRate" required
                     value="40">
             </div>
@@ -57,16 +57,16 @@
                 <div class="investment-input">
                     <hr class="my-4">
                     <div class="w3-row w3-section">
-                        <label for="investmentName"  style="width:40%">Nom de l'investissement :</label>
+                        <label for="investmentName" style="width:40%">Nom de l'investissement :</label>
                         <input type="text" class="form-control w3-input name" required value="PEA">
                     </div>
                     <div class="w3-row w3-section">
-                        <label for="investmentRate"  style="width:40%">Taux de rendement annuel (%)
+                        <label for="investmentRate" style="width:40%">Taux de rendement annuel (%)
                             :</label>
                         <input type="number" class="form-control w3-input rate" required value="8">
                     </div>
                     <div class="w3-row w3-section">
-                        <label for="investmentInitialAmount"  style="width:40%">Montant initial :</label>
+                        <label for="investmentInitialAmount" style="width:40%">Montant initial :</label>
                         <input type="number" class="form-control w3-input initial-amount" required value="10000">
                     </div>
                     <div class="w3-row w3-section">
@@ -92,6 +92,13 @@
 
                 <button class="w3-btn w3-blue w3-round-xlarge w3-ios-green" type="button"
                     onclick="simulateInvestments()">Simuler</button>
+
+                <br>
+                <br>
+
+                <button class="w3-btn w3-round-xlarge w3-ios-red" type="button"
+                    onclick="toggleExplanation()">Comment ça marche</button>
+
             </div>
             <br>
             <br>
@@ -100,6 +107,72 @@
 
 
         <div id="results">
+        </div>
+
+
+
+        <div id="explanation" style="display:none;">
+            <p>Bien sûr InvestmentSimulator ! Voici une explication plus structurée sur l'utilisation du site :</p>
+            <ol>
+                <li>Remplir le formulaire :
+                    <ul>
+                        <li>Durée (années) : Indiquez la période d'investissement en années.</li>
+                        <li>Salaire initial : Entrez votre salaire initial en euros.</li>
+                        <li>Taux d'épargne (%) : Indiquez le pourcentage de votre salaire que vous souhaitez
+                            épargner.</li>
+                    </ul>
+                </li>
+                <li>Ajouter des investissements :
+                    <ul>
+                        <li>Cliquez sur le bouton "+" à côté du champ "Nom de l'investissement" pour ajouter un
+                            nouvel
+                            investissement.</li>
+                        <li>Pour chaque investissement ajouté, remplissez les champs suivants :
+                            <ul>
+                                <li>Nom de l'investissement : Donnez un nom à votre investissement.</li>
+                                <li>Taux de rendement annuel (%) : Indiquez le pourcentage de rendement annuel
+                                    attendu pour
+                                    cet investissement.</li>
+                                <li>Montant initial : Entrez le montant initial que vous souhaitez investir.
+                                </li>
+                                <li>Pourcentage d'allocation (%) : Indiquez le pourcentage de votre portefeuille
+                                    total que
+                                    vous souhaitez allouer à cet investissement (ne doit pas excéder 100% entre
+                                    tout vos
+                                    investissement).</li>
+                                <li>Frais de gestion annuels (%) : Entrez le pourcentage des frais de gestion
+                                    annuels pour
+                                    cet investissement.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Simuler les investissements :
+                    <ul>
+                        <li>Une fois que vous avez ajouté tous vos investissements, cliquez sur le bouton
+                            "Simuler".</li>
+                        <li>La page affichera un graphique montrant l'évolution de la valeur totale de votre
+                            portefeuille
+                            d'investissements au fil du temps.</li>
+                    </ul>
+                </li>
+                <li>Visualiser les performances :
+                    <ul>
+                        <li>Si vous souhaitez visualiser les performances individuelles de vos investissements,
+                            cliquez sur
+                            le bouton "Visualiser".</li>
+                        <li>Un graphique séparé s'affichera pour chaque investissement, montrant son évolution
+                            au fil du
+                            temps.</li>
+                    </ul>
+                </li>
+            </ol>
+            <p>C'est tout ! Avec ces étapes, vous pourrez utiliser le simulateur d'investissements pour calculer
+                et
+                visualiser les performances de votre portefeuille d'investissements sur une période donnée.
+                N'hésitez pas à
+                ajouter plusieurs investissements pour voir comment ils se comportent ensemble dans votre
+                portefeuille.</p>
         </div>
 
 
